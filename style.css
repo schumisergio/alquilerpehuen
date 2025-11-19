@@ -266,20 +266,74 @@ p {
     padding: 10px;
 }
 /* ===========================================================
-   📌 compatibilidad android apple
+   📱 RESPONSIVE MÓVIL (pantallas < 768px)
    =========================================================== */
-@media screen and (max-width:480px){
-    h1{
+@media (max-width: 768px) {
+
+    /* HEADER en columna */
+    .encabezado {
+        flex-direction: column;
         text-align: center;
+        gap: 20px;
     }
-    nav{
-        position: static;
+
+    .header-izq {
+        flex-direction: column;
+        gap: 10px;
     }
-    .caja, .principal, .mapa-contenido, .contenido-diferenciales, .video {
-        width: auto;
+
+    .logo-header {
+        height: 80px;
     }
-    .lista-diferenciales, .imagen-diferenciales{
+
+    /* Sol y pinos más chicos y centrados */
+    .animacion-sol-pinos {
+        margin-left: 0;
+        width: 100px;
+        height: 80px;
+    }
+
+    .pino {
+        width: 40px;
+    }
+
+    .sol {
+        width: 40px;
+        height: 40px;
+        left: 30px !important;   /* centrado */
+        bottom: 50px;
+    }
+
+    /* Menú centrado */
+    .menu-header ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Banner bien ajustado */
+    #banner {
+        width: 100%;
+        height: auto;
+    }
+
+    /* DIFERENCIALES EN COLUMNA */
+    .contenido-diferenciales {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .columna-texto, .imagen-diferenciales {
         width: 100%;
     }
 
+    .imagen-diferenciales {
+        margin-top: 20px;
+    }
+
+    /* FOOTER alineado al centro */
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
