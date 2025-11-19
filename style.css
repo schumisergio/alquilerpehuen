@@ -266,61 +266,79 @@ p {
     padding: 10px;
 }
 /* ===========================================================
-   📱 RESPONSIVE MÓVIL (pantallas < 768px)
-   =========================================================== */
+ 📱 RESPONSIVE MÓVIL (pantallas < 768px)
+=========================================================== */
 @media (max-width: 768px) {
 
-    /* HEADER en columna */
+    /* Evitar desbordes */
+    body, html {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
     .encabezado {
         flex-direction: column;
-        text-align: center;
+        flex-wrap: wrap;        /* ← IMPORTANTE */
+        align-items: center;
         gap: 20px;
+        text-align: center;
     }
 
     .header-izq {
         flex-direction: column;
+        align-items: center;
         gap: 10px;
     }
 
+    /* Títulos responsivos */
+    .titulo-centralizado {
+        font-size: 1.5rem;      /* se ve más claro en móvil */
+        text-align: center;
+    }
+
+    /* Logo */
     .logo-header {
         height: 80px;
     }
 
-    /* Sol y pinos más chicos y centrados */
+    /* Animación sol-pinos */
     .animacion-sol-pinos {
         margin-left: 0;
-        width: 100px;
-        height: 80px;
+        width: 120px;
+        height: 100px;
+        position: relative;
     }
 
     .pino {
-        width: 40px;
+        width: 35px;
+        bottom: 0;
     }
 
     .sol {
         width: 40px;
         height: 40px;
-        left: 30px !important;   /* centrado */
-        bottom: 50px;
+        left: 40px !important;
+        bottom: 40px !important;
     }
 
-    /* Menú centrado */
+    /* Menú */
     .menu-header ul {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        padding: 0;
     }
 
-    /* Banner bien ajustado */
+    /* Banner responsivo */
     #banner {
-        width: 100%;
+        max-width: 100%;
         height: auto;
     }
 
-    /* DIFERENCIALES EN COLUMNA */
+    /* Diferenciales en columna */
     .contenido-diferenciales {
         flex-direction: column;
-        text-align: center;
         align-items: center;
+        text-align: center;
     }
 
     .columna-texto, .imagen-diferenciales {
@@ -328,12 +346,19 @@ p {
     }
 
     .imagen-diferenciales {
+        max-width: 100%;
         margin-top: 20px;
     }
 
-    /* FOOTER alineado al centro */
+    /* Galería */
+    .galeria img {
+        width: 100%;
+    }
+
+    /* Footer */
     .footer {
         flex-direction: column;
         text-align: center;
+        gap: 10px;
     }
 }
