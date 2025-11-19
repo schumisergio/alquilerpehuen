@@ -99,6 +99,12 @@ p {
 /* ===========================================================
    🌟 DIFERENCIALES
    =========================================================== */
+   
+ul {
+    list-style-type: none;   /* Quita los puntos */
+    padding-left: 0;         /* Opcional: elimina sangría */
+}
+  
 .diferenciales {
     padding: 3em 0;                 
     background: #888888;            
@@ -362,3 +368,4 @@ p {
         gap: 10px;
     }
 }
+
