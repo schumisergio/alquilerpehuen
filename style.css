@@ -271,12 +271,11 @@ ul {
     gap: 8px;              
     padding: 10px;
 }
-/* ===========================================================
+/* =========================================================== 
  📱 RESPONSIVE MÓVIL (pantallas < 768px)
 =========================================================== */
 @media (max-width: 768px) {
 
-    /* Evitar desbordes */
     body, html {
         overflow-x: hidden;
         max-width: 100%;
@@ -284,40 +283,54 @@ ul {
 
     .encabezado {
         flex-direction: column;
-        flex-wrap: wrap;        /* ← IMPORTANTE */
-        align-items: center;
+        flex-wrap: wrap;
+        align-items: flex-start;     /* LOGO A LA IZQUIERDA */
         gap: 20px;
-        text-align: center;
+        text-align: left;
     }
 
-    .header-izq {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    /* Títulos responsivos */
-    .titulo-centralizado {
-        font-size: 1.5rem;      /* se ve más claro en móvil */
-        text-align: center;
-    }
-
-    /* Logo */
+    /* LOGO A LA IZQUIERDA - PRIMERO */
     .logo-header {
         height: 80px;
+        order: 1;
+        align-self: flex-start;
     }
 
-    /* Animación sol-pinos */
+    /* MENÚ A LA DERECHA - SEGUNDO */
+    .menu-header {
+        order: 2;
+        width: 100%;
+    }
+
+    .menu-header ul {
+        display: flex;
+        justify-content: flex-end;    /* MENÚ A LA DERECHA */
+        flex-direction: row;          /* Que no se haga columna */
+        gap: 20px;
+        padding: 0;
+    }
+
+    /* TÍTULO + DIRECCIÓN - TERCERO */
+    .header-izq {
+        order: 3;
+        width: 100%;
+        text-align: left;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .titulo-centralizado {
+        font-size: 1.5rem;
+        text-align: left;
+    }
+
+    /* ANIMACIÓN – CUARTO (Y FUNCIONANDO) */
     .animacion-sol-pinos {
+        order: 4;
         margin-left: 0;
         width: 120px;
         height: 100px;
         position: relative;
-    }
-
-    .pino {
-        width: 35px;
-        bottom: 0;
     }
 
     .sol {
@@ -325,22 +338,23 @@ ul {
         height: 40px;
         left: 40px !important;
         bottom: 40px !important;
+
+        /* 🔥 ANIMACIÓN RESTAURADA */
+        animation: moverSol 3s infinite alternate linear;
     }
 
-    /* Menú */
-    .menu-header ul {
-        flex-direction: column;
-        gap: 12px;
-        padding: 0;
+    .pino {
+        width: 35px;
+        bottom: 0;
     }
 
-    /* Banner responsivo */
+    /* Banner */
     #banner {
         max-width: 100%;
         height: auto;
     }
 
-    /* Diferenciales en columna */
+    /* Diferenciales */
     .contenido-diferenciales {
         flex-direction: column;
         align-items: center;
@@ -369,3 +383,8 @@ ul {
     }
 }
 
+/* 🔥 POR SI FALTA ANIMACIÓN GLOBAL */
+@keyframes moverSol {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
